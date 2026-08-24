@@ -1,23 +1,133 @@
-<main class="container">
-  <article>
-    <h1>Minimal interfaces</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>Mallow — a tiny, soft CSS framework</title>
+    <link rel="stylesheet" href="mallow.css">
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <p class="muted">mallow.css</p>
+        <h1>A tiny, soft CSS framework.</h1>
+        <p>
+          Mallow gives semantic HTML a quiet dark interface, then adds a
+          handful of layout primitives for the places HTML needs a little help.
+        </p>
+        <div class="cluster">
+          <button>Primary action</button>
+          <button class="secondary">Secondary</button>
+          <a href="#specimen">View specimen</a>
+        </div>
+      </header>
 
-    <p>
-      Most pages shouldn't require a pile of component classes.
-      Semantic HTML should get you most of the way there.
-    </p>
+      <hr>
 
-    <h2>Example</h2>
+      <article id="specimen">
+        <h2>Semantic HTML</h2>
+        <p>
+          Most pages shouldn't require a pile of component classes. Text,
+          links, lists, forms, tables, quotes, and code should look considered
+          before you add a single class.
+        </p>
 
-    <pre><code>fn main() {
-    println!("hello");
+        <h3>Typography</h3>
+        <p>
+          Mallow favors restrained hierarchy and comfortable reading measure.
+          Here is an <a href="#">ordinary link</a>, some <code>inline code</code>,
+          and <span class="muted">muted text</span>.
+        </p>
+        <ul>
+          <li>Semantic first</li>
+          <li>Dark by default</li>
+          <li>Small vocabulary</li>
+        </ul>
+
+        <blockquote>
+          <p>Structure should provide most of the visual hierarchy.</p>
+        </blockquote>
+
+        <h3>Code</h3>
+        <pre><code>fn main() {
+    println!("hello from mallow");
 }</code></pre>
 
-    <blockquote>
-      Structure should provide most of the visual hierarchy.
-    </blockquote>
+        <h3>Table</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Primitive</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.stack</code></td>
+              <td>Vertical rhythm</td>
+            </tr>
+            <tr>
+              <td><code>.cluster</code></td>
+              <td>Wrapping horizontal groups</td>
+            </tr>
+            <tr>
+              <td><code>.card</code></td>
+              <td>Raised content surface</td>
+            </tr>
+          </tbody>
+        </table>
 
-    <button>Continue</button>
-    <button class="secondary">Cancel</button>
-  </article>
-</main>
+        <h3>Form controls</h3>
+        <form class="stack">
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com">
+          </div>
+          <div>
+            <label for="role">Role</label>
+            <select id="role">
+              <option>Developer</option>
+              <option>Designer</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="note">Note</label>
+            <textarea id="note" placeholder="Keep it simple."></textarea>
+          </div>
+          <div class="cluster">
+            <button type="button">Save</button>
+            <button type="button" class="secondary">Cancel</button>
+          </div>
+        </form>
+      </article>
+
+      <hr>
+
+      <section>
+        <h2>Primitives</h2>
+        <div class="stack">
+          <div class="card">
+            <strong>Card</strong>
+            <p class="muted">A padded raised surface.</p>
+          </div>
+
+          <div class="sidebar-layout">
+            <aside class="card">
+              <strong>Sidebar</strong>
+              <p class="muted">Stacks above content on small screens.</p>
+            </aside>
+            <div class="card">
+              <strong>Content</strong>
+              <p>
+                Mallow supplies layout structure without turning every CSS
+                property into a utility class.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
