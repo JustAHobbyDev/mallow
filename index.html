@@ -20,8 +20,8 @@
         <h1>Dark interfaces with sharper edges.</h1>
         <p>
           Mallow gives semantic HTML a dark, technical baseline: black field,
-          crisp type, hairline structure, compact controls, and color used as
-          annotation rather than decoration.
+          crisp type, hairline structure, compact controls, and color reserved
+          for recognizable functions and state.
         </p>
         <div class="cluster">
           <button>Run check</button>
@@ -45,29 +45,29 @@
           </thead>
           <tbody>
             <tr>
-              <td><span data-accent="green">●</span> field-notes</td>
-              <td>research</td>
-              <td class="numeric">ACTIVE</td>
+              <td>field-notes</td>
+              <td data-category>research</td>
+              <td class="numeric" data-state="active">● ACTIVE</td>
             </tr>
             <tr>
-              <td><span data-accent="orange">●</span> compiler-lab</td>
-              <td>language</td>
-              <td class="numeric">IDLE</td>
+              <td>compiler-lab</td>
+              <td data-category>language</td>
+              <td class="numeric" data-state="idle">● IDLE</td>
             </tr>
             <tr>
-              <td><span data-accent="pink">●</span> agent-workbench</td>
-              <td>automation</td>
-              <td class="numeric">ACTIVE</td>
+              <td>agent-workbench</td>
+              <td data-category>automation</td>
+              <td class="numeric" data-state="active">● ACTIVE</td>
             </tr>
             <tr>
-              <td><span data-accent="blue">●</span> systems</td>
-              <td>infrastructure</td>
-              <td class="numeric">STABLE</td>
+              <td>systems</td>
+              <td data-category>infrastructure</td>
+              <td class="numeric" data-state="healthy">● STABLE</td>
             </tr>
             <tr>
-              <td><span data-accent="lime">●</span> deploy</td>
-              <td>operations</td>
-              <td class="numeric">TEST</td>
+              <td>deploy</td>
+              <td data-category>operations</td>
+              <td class="numeric" data-state="experimental">● EXPERIMENTAL</td>
             </tr>
           </tbody>
         </table>
@@ -81,8 +81,8 @@
         </p>
         <p>
           Here is an <a href="#">ordinary link</a>, some <code>inline code</code>,
-          <span class="muted">muted context</span>, and
-          <span data-accent="blue">a blue annotation</span>.
+          <span class="muted">muted context</span>, and a
+          <span data-category>category label</span>.
         </p>
 
         <blockquote>
@@ -99,29 +99,62 @@
             <tr>
               <th>Channel</th>
               <th>Value</th>
-              <th>Delta</th>
+              <th>State</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>capture.rate</td>
               <td class="numeric">12.40 /s</td>
-              <td class="numeric" data-accent="green">+0.82</td>
+              <td class="numeric" data-state="healthy">OK</td>
             </tr>
             <tr>
               <td>queue.depth</td>
               <td class="numeric">0042</td>
-              <td class="numeric">+0003</td>
+              <td class="numeric">NOMINAL</td>
             </tr>
             <tr>
               <td>latency.p95</td>
               <td class="numeric">183 ms</td>
-              <td class="numeric" data-accent="orange">+17 ms</td>
+              <td class="numeric" data-state="warning">WARNING</td>
             </tr>
           </tbody>
         </table>
 
-        <p class="label">04 / Code</p>
+        <p class="label">04 / Color</p>
+        <h2>Semantic color</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Navigation</td>
+              <td><a href="#">Documentation</a></td>
+            </tr>
+            <tr>
+              <td>Healthy state</td>
+              <td class="numeric" data-state="healthy">● HEALTHY</td>
+            </tr>
+            <tr>
+              <td>Warning state</td>
+              <td class="numeric" data-state="warning">● DEGRADED</td>
+            </tr>
+            <tr>
+              <td>Category</td>
+              <td data-category>research</td>
+            </tr>
+            <tr>
+              <td>Experimental state</td>
+              <td class="numeric" data-state="experimental">● EXPERIMENTAL</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="label">05 / Code</p>
         <h2>Code</h2>
         <pre><code>type Status
     = Active
@@ -132,7 +165,7 @@ render : Status -> String
 render status =
     statusToLabel status</code></pre>
 
-        <p class="label">05 / Controls</p>
+        <p class="label">06 / Controls</p>
         <h2>Form controls</h2>
         <form class="stack">
           <div>
@@ -161,7 +194,7 @@ render status =
       <hr>
 
       <section>
-        <p class="label">06 / Primitives</p>
+        <p class="label">07 / Primitives</p>
         <h2>Structure without chrome</h2>
         <div class="sidebar-layout">
           <aside class="card">
