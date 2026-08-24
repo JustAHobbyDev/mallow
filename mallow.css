@@ -16,14 +16,14 @@
   --color-border: #262626;
   --color-border-strong: #484747;
 
-  /* semantic color — terminal/instrument palette */
-  --color-link: #48a0b2;
-  --color-link-hover: #66b7c7;
+  /* semantic color — high-contrast terminal/instrument palette */
+  --color-link: #55b6c8;
+  --color-link-hover: #82d3df;
   --color-success: #1bde64;
-  --color-stable: #cf7627;
-  --color-warning: #f6c443;
-  --color-danger: #cd0400;
-  --color-category: #ea3d8d;
+  --color-stable: #f08f3e;
+  --color-warning: #ffd24a;
+  --color-danger: #ff5f56;
+  --color-category: #ff5ab0;
   --color-experimental: #a576fa;
 
   /* physical depth */
@@ -333,7 +333,7 @@ a:focus-visible {
 }
 
 ::selection {
-  background: rgb(72 160 178 / 32%);
+  background: rgb(85 182 200 / 32%);
   color: white;
 }
 
