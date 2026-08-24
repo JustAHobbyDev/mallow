@@ -70,4 +70,4 @@ adding package tooling or a larger component vocabulary.
 
 ## License
 
-Not selected yet.
+Apache License 2.0. See `LICENSE`.
