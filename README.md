@@ -1,8 +1,8 @@
-# Mallow
+# Vernier
 
 A small dark CSS micro-framework for precise, content-first interfaces.
 
-Mallow is classless-first: semantic HTML should look good on its own. A small
+Vernier is classless-first: semantic HTML should look good on its own. A small
 set of layout, state, and report primitives is available when structure needs
 more than HTML can express cleanly.
 
@@ -26,10 +26,10 @@ selective hard-edged depth, and a restrained terminal-inspired palette.
 ## Use
 
 ```html
-<link rel="stylesheet" href="mallow.css">
+<link rel="stylesheet" href="vernier.css">
 ```
 
-Mallow prefers Metrophobic and IBM Plex Mono but does not bundle or fetch them.
+Vernier prefers Metrophobic and IBM Plex Mono but does not bundle or fetch them.
 Load the fonts yourself if you want the intended type treatment; otherwise the
 framework falls back to common sans-serif and monospace families. The specimen
 page loads both fonts from Google Fonts for demonstration.
@@ -51,7 +51,7 @@ Open `index.html` for a living specimen of the framework.
 
 ## Configuration
 
-There is no separate Mallow configuration format. Override the custom properties
+There is no separate Vernier configuration format. Override the custom properties
 in CSS:
 
 ```css
@@ -62,7 +62,7 @@ in CSS:
 ```
 
 The goal is to preserve a direct relationship between source and rendered output.
-If changing Mallow requires a generator, DSL, or build system, the framework has
+If changing Vernier requires a generator, DSL, or build system, the framework has
 probably become too complicated.
 
 ## API
@@ -93,7 +93,7 @@ Depth is deliberately crisp rather than blurred:
 
 ### Semantic HTML
 
-Mallow styles common document and form elements directly, including:
+Vernier styles common document and form elements directly, including:
 
 `body`, headings, paragraphs, links, lists, code, blockquotes, tables, inputs,
 selects, textareas, buttons, and progress meters.
@@ -163,7 +163,7 @@ controls and bounded modules whose separation from the page carries meaning.
 
 ## Status
 
-Mallow is experimental. The goal is to discover the smallest useful API before
+Vernier is experimental. The goal is to discover the smallest useful API before
 adding package tooling or a larger component vocabulary.
 
 ## License
