@@ -17,7 +17,7 @@ selective hard-edged depth, and a restrained terminal-inspired palette.
 - Dark-first, flat fields, small radii, and visible structure.
 - Depth is explicit: surfaces stay flat; cards, code panels, and buttons use crisp offset shadows.
 - Metrophobic for prose; IBM Plex Mono for labels, identifiers, measurements, and state.
-- Color communicates function or state; it is not generic emphasis.
+- Color communicates behavior, state, or consequence; taxonomy remains neutral.
 - Tabular, short, clear, and concise beats decorative chrome.
 - The stylesheet is the configuration.
 - A few composable primitives instead of utility-class sprawl.
@@ -57,7 +57,7 @@ in CSS:
 ```css
 :root {
   --content-width: 64rem;
-  --color-link: #48a0b2;
+  --color-link: #55b6c8;
 }
 ```
 
@@ -73,17 +73,16 @@ Colors, typography, spacing, radii, content width, and physical-depth tokens are
 exposed as custom properties on `:root`.
 
 The default palette is pushed toward dark terminal instrumentation rather than a
-conventional product-UI palette: pure black, cool gray structure, muted cyan for
-navigation, bright green for active/healthy state, orange for stable state,
-amber for warnings, hard red for faults, magenta for categories, and violet for
-experimental state.
+conventional product-UI palette: pure black, cool gray structure, high-contrast
+cyan for navigation, bright green for active/healthy state, orange for stable
+state, amber for warnings, bright red for faults, and violet for experimental
+state.
 
 - `--color-link` — links, navigation, and interactive focus
 - `--color-success` — active, healthy, or OK state
 - `--color-stable` — stable or settled state
 - `--color-warning` — warning or degraded state
 - `--color-danger` — fault or error state
-- `--color-category` — category and grouping labels
 - `--color-experimental` — experimental or unusual state
 
 Depth is deliberately crisp rather than blurred:
@@ -114,6 +113,7 @@ offset shadow.
 - `.label` — compact uppercase technical label
 - `.meta` — muted technical metadata
 - `.numeric` — monospace tabular numeric content
+- `.tag` — neutral bordered taxonomy label
 - `[data-state="active"]` — green
 - `[data-state="healthy"]` — green
 - `[data-state="ok"]` — green
@@ -124,10 +124,16 @@ offset shadow.
 - `[data-state="error"]` — red
 - `[data-state="experimental"]` — violet
 - `[data-state="idle"]` — muted gray
-- `[data-category]` / `.category` — magenta category or grouping label
+
+Taxonomy does not receive a semantic color. Use `.tag` when a category or grouping
+needs visible structure:
+
+```html
+<span class="tag">research</span>
+```
 
 The public API intentionally does not provide color-by-name helpers. If color has
-no semantic job, prefer normal text, typography, rules, or other non-color
+no semantic job, prefer normal text, typography, rules, tags, or other non-color
 structure.
 
 ### Reports
