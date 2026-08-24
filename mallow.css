@@ -24,6 +24,10 @@
   --color-category: #ef81bd;
   --color-experimental: #b6ff00;
 
+  /* physical depth */
+  --shadow-sm: 3px 3px 0 rgb(255 255 255 / 10%);
+  --shadow-md: 5px 5px 0 rgb(255 255 255 / 12%);
+
   /* typography */
   --font-sans:
     "IBM Plex Sans",
@@ -180,9 +184,10 @@ pre {
   overflow-x: auto;
   margin-block: 1.25rem;
   padding: 0.85rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
   background: var(--color-bg-subtle);
+  box-shadow: var(--shadow-sm);
 }
 
 pre code {
@@ -242,22 +247,35 @@ textarea {
 button {
   padding: 0.42rem 0.7rem;
   border: 1px solid var(--color-text);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   background: var(--color-text);
+  box-shadow: var(--shadow-sm);
   color: var(--color-bg);
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
+  transition:
+    transform 70ms ease,
+    box-shadow 70ms ease,
+    background 70ms ease,
+    border-color 70ms ease;
 }
 
 button:hover {
-  background: #fff;
   border-color: #fff;
+  background: #fff;
+  box-shadow: 2px 2px 0 rgb(255 255 255 / 10%);
+  transform: translate(1px, 1px);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
 }
 
 button.secondary {
   border-color: var(--color-border-strong);
-  background: transparent;
+  background: var(--color-surface);
   color: var(--color-text);
 }
 
@@ -375,19 +393,28 @@ main.container {
   gap: var(--space-5);
 }
 
-.surface,
-.card {
+.surface {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-sm);
   background: var(--color-surface);
 }
 
 .card {
   padding: var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-subtle);
+  box-shadow: var(--shadow-md);
 }
 
 @media (max-width: 40rem) {
   .sidebar-layout {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
   }
 }

@@ -7,14 +7,16 @@ set of layout primitives and annotations is available when structure needs more
 than HTML can express cleanly.
 
 The visual direction is a digital chalkboard crossed with a technical instrument:
-a near-black field, crisp typography, hairline structure, compact controls, and
-bright color used sparingly to communicate function or state.
+a near-black field, crisp typography, hairline structure, compact controls,
+selective hard-edged depth, and bright color used sparingly to communicate
+function or state.
 
 ## Principles
 
 - Semantic HTML before component classes.
 - Information establishes hierarchy before containers do.
-- Dark-first, flat surfaces, small radii, and visible structure.
+- Dark-first, flat fields, small radii, and visible structure.
+- Depth is explicit: surfaces stay flat; cards, code panels, and buttons use crisp offset shadows.
 - IBM Plex Sans for prose and IBM Plex Mono for labels, identifiers, measurements, and state.
 - Color communicates function or state; it is not generic emphasis.
 - A small, intentional design-token vocabulary.
@@ -51,8 +53,8 @@ Open `index.html` for a living specimen of the framework.
 
 ### Tokens
 
-Colors, typography, spacing, radii, and content width are exposed as custom
-properties on `:root`.
+Colors, typography, spacing, radii, content width, and physical-depth tokens are
+exposed as custom properties on `:root`.
 
 Color tokens are semantic rather than generic accents:
 
@@ -62,6 +64,11 @@ Color tokens are semantic rather than generic accents:
 - `--color-category` — category and grouping labels
 - `--color-experimental` — experimental or unusual state
 
+Depth is deliberately crisp rather than blurred:
+
+- `--shadow-sm` — controls and compact raised panels
+- `--shadow-md` — cards and more prominent bounded modules
+
 ### Semantic HTML
 
 Mallow styles common document and form elements directly, including:
@@ -70,7 +77,8 @@ Mallow styles common document and form elements directly, including:
 selects, textareas, and buttons.
 
 Links are blue by default. Neutral structural elements remain gray rather than
-borrowing a state color.
+borrowing a state color. Code blocks are treated as raised technical panels with
+a hard offset shadow.
 
 ### Layout
 
@@ -99,10 +107,14 @@ typography, rules, or other non-color structure.
 
 ### Components
 
-- `.surface` — bounded flat surface
-- `.card` — compact padded surface
-- `button.secondary` — secondary button treatment
+- `.surface` — bounded flat surface with no elevation
+- `.card` — compact raised surface with a hard offset shadow
+- `button` — hard-edged raised control with a pressed interaction
+- `button.secondary` — secondary raised control treatment
 - `.muted` — muted text
+
+Most content should remain directly on the field. Elevation is reserved for
+controls and bounded modules whose separation from the page carries meaning.
 
 ## Status
 
