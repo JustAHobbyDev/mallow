@@ -15,17 +15,22 @@ bright color used sparingly as annotation.
 - Semantic HTML before component classes.
 - Information establishes hierarchy before containers do.
 - Dark-first, flat surfaces, small radii, and visible structure.
-- Sans-serif prose; monospace for labels, identifiers, measurements, and state.
+- IBM Plex Sans for prose and IBM Plex Mono for labels, identifiers, measurements, and state.
 - Color is annotation, not decoration.
 - A small, intentional design-token vocabulary.
 - A few composable layout primitives instead of utility-class sprawl.
-- No JavaScript, build step, or dependencies.
+- No JavaScript, build step, or required runtime dependencies.
 
 ## Use
 
 ```html
 <link rel="stylesheet" href="mallow.css">
 ```
+
+Mallow prefers IBM Plex Sans and IBM Plex Mono but does not bundle or fetch them.
+Load the fonts yourself if you want the intended type treatment; otherwise the
+framework falls back to common sans-serif and monospace families. The specimen
+page loads IBM Plex from Google Fonts for demonstration.
 
 Then write ordinary HTML:
 
