@@ -4,101 +4,150 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark">
-    <title>Mallow — a tiny, soft CSS framework</title>
+    <title>Mallow — dark CSS for precise interfaces</title>
     <link rel="stylesheet" href="mallow.css">
   </head>
   <body>
     <main class="container">
       <header>
-        <p class="muted">mallow.css</p>
-        <h1>A tiny, soft CSS framework.</h1>
+        <p class="meta">Mallow / Specimen 01</p>
+        <h1>Dark interfaces with sharper edges.</h1>
         <p>
-          Mallow gives semantic HTML a quiet dark interface, then adds a
-          handful of layout primitives for the places HTML needs a little help.
+          Mallow gives semantic HTML a dark, technical baseline: black field,
+          crisp type, hairline structure, compact controls, and color used as
+          annotation rather than decoration.
         </p>
         <div class="cluster">
-          <button>Primary action</button>
-          <button class="secondary">Secondary</button>
-          <a href="#specimen">View specimen</a>
+          <button>Run check</button>
+          <button class="secondary">Open notes</button>
+          <a href="#specimen">Inspect specimen</a>
         </div>
       </header>
 
       <hr>
 
       <article id="specimen">
-        <h2>Semantic HTML</h2>
-        <p>
-          Most pages shouldn't require a pile of component classes. Text,
-          links, lists, forms, tables, quotes, and code should look considered
-          before you add a single class.
-        </p>
-
-        <h3>Typography</h3>
-        <p>
-          Mallow favors restrained hierarchy and comfortable reading measure.
-          Here is an <a href="#">ordinary link</a>, some <code>inline code</code>,
-          and <span class="muted">muted text</span>.
-        </p>
-        <ul>
-          <li>Semantic first</li>
-          <li>Dark by default</li>
-          <li>Small vocabulary</li>
-        </ul>
-
-        <blockquote>
-          <p>Structure should provide most of the visual hierarchy.</p>
-        </blockquote>
-
-        <h3>Code</h3>
-        <pre><code>fn main() {
-    println!("hello from mallow");
-}</code></pre>
-
-        <h3>Table</h3>
+        <p class="label">01 / Register</p>
+        <h2>Projects</h2>
         <table>
           <thead>
             <tr>
-              <th>Primitive</th>
-              <th>Purpose</th>
+              <th>Project</th>
+              <th>Area</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><code>.stack</code></td>
-              <td>Vertical rhythm</td>
+              <td><span data-accent="green">●</span> field-notes</td>
+              <td>research</td>
+              <td class="numeric">ACTIVE</td>
             </tr>
             <tr>
-              <td><code>.cluster</code></td>
-              <td>Wrapping horizontal groups</td>
+              <td><span data-accent="orange">●</span> compiler-lab</td>
+              <td>language</td>
+              <td class="numeric">IDLE</td>
             </tr>
             <tr>
-              <td><code>.card</code></td>
-              <td>Raised content surface</td>
+              <td><span data-accent="pink">●</span> agent-workbench</td>
+              <td>automation</td>
+              <td class="numeric">ACTIVE</td>
+            </tr>
+            <tr>
+              <td><span data-accent="blue">●</span> systems</td>
+              <td>infrastructure</td>
+              <td class="numeric">STABLE</td>
+            </tr>
+            <tr>
+              <td><span data-accent="lime">●</span> deploy</td>
+              <td>operations</td>
+              <td class="numeric">TEST</td>
             </tr>
           </tbody>
         </table>
 
-        <h3>Form controls</h3>
+        <p class="label">02 / Type</p>
+        <h2>Semantic HTML</h2>
+        <p>
+          The page should feel considered before component classes appear.
+          Ordinary prose stays readable while labels, measurements, identifiers,
+          and machine state move into a compact monospace register.
+        </p>
+        <p>
+          Here is an <a href="#">ordinary link</a>, some <code>inline code</code>,
+          <span class="muted">muted context</span>, and
+          <span data-accent="blue">a blue annotation</span>.
+        </p>
+
+        <blockquote>
+          <p>
+            Information establishes the hierarchy. Containers should only appear
+            when they explain structure.
+          </p>
+        </blockquote>
+
+        <p class="label">03 / Measurement</p>
+        <h2>Instrument data</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>Value</th>
+              <th>Delta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>capture.rate</td>
+              <td class="numeric">12.40 /s</td>
+              <td class="numeric" data-accent="green">+0.82</td>
+            </tr>
+            <tr>
+              <td>queue.depth</td>
+              <td class="numeric">0042</td>
+              <td class="numeric">+0003</td>
+            </tr>
+            <tr>
+              <td>latency.p95</td>
+              <td class="numeric">183 ms</td>
+              <td class="numeric" data-accent="orange">+17 ms</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="label">04 / Code</p>
+        <h2>Code</h2>
+        <pre><code>type Status
+    = Active
+    | Idle
+    | Stable
+
+render : Status -> String
+render status =
+    statusToLabel status</code></pre>
+
+        <p class="label">05 / Controls</p>
+        <h2>Form controls</h2>
         <form class="stack">
           <div>
-            <label for="email">Email</label>
-            <input id="email" type="email" placeholder="you@example.com">
+            <label for="project">Project</label>
+            <input id="project" type="text" placeholder="project-name">
           </div>
           <div>
-            <label for="role">Role</label>
-            <select id="role">
-              <option>Developer</option>
-              <option>Designer</option>
-              <option>Other</option>
+            <label for="mode">Mode</label>
+            <select id="mode">
+              <option>Observe</option>
+              <option>Test</option>
+              <option>Deploy</option>
             </select>
           </div>
           <div>
-            <label for="note">Note</label>
-            <textarea id="note" placeholder="Keep it simple."></textarea>
+            <label for="note">Field note</label>
+            <textarea id="note" placeholder="Record the observation."></textarea>
           </div>
           <div class="cluster">
-            <button type="button">Save</button>
-            <button type="button" class="secondary">Cancel</button>
+            <button type="button">Record</button>
+            <button type="button" class="secondary">Discard</button>
           </div>
         </form>
       </article>
@@ -106,25 +155,20 @@
       <hr>
 
       <section>
-        <h2>Primitives</h2>
-        <div class="stack">
-          <div class="card">
-            <strong>Card</strong>
-            <p class="muted">A padded raised surface.</p>
-          </div>
-
-          <div class="sidebar-layout">
-            <aside class="card">
-              <strong>Sidebar</strong>
-              <p class="muted">Stacks above content on small screens.</p>
-            </aside>
-            <div class="card">
-              <strong>Content</strong>
-              <p>
-                Mallow supplies layout structure without turning every CSS
-                property into a utility class.
-              </p>
-            </div>
+        <p class="label">06 / Primitives</p>
+        <h2>Structure without chrome</h2>
+        <div class="sidebar-layout">
+          <aside class="card">
+            <p class="label">Context</p>
+            <p class="muted">A compact bounded region when a boundary is useful.</p>
+          </aside>
+          <div>
+            <p class="label">Working area</p>
+            <p>
+              Most content can remain directly on the field. Mallow keeps cards
+              available, but they are no longer the default unit of composition.
+            </p>
+            <p class="meta">Build 0001 / Dark / Experimental</p>
           </div>
         </div>
       </section>
