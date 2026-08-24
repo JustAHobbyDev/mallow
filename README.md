@@ -1,16 +1,23 @@
 # Mallow
 
-A tiny, soft CSS micro-framework for quiet, content-first interfaces.
+A small dark CSS micro-framework for precise, content-first interfaces.
 
 Mallow is classless-first: semantic HTML should look good on its own. A small
-set of layout primitives and components is available when structure needs more
+set of layout primitives and annotations is available when structure needs more
 than HTML can express cleanly.
+
+The visual direction is a digital chalkboard crossed with a technical instrument:
+a near-black field, crisp typography, hairline structure, compact controls, and
+bright color used sparingly as annotation.
 
 ## Principles
 
 - Semantic HTML before component classes.
+- Information establishes hierarchy before containers do.
+- Dark-first, flat surfaces, small radii, and visible structure.
+- Sans-serif prose; monospace for labels, identifiers, measurements, and state.
+- Color is annotation, not decoration.
 - A small, intentional design-token vocabulary.
-- Dark-first, low-contrast surfaces and restrained hierarchy.
 - A few composable layout primitives instead of utility-class sprawl.
 - No JavaScript, build step, or dependencies.
 
@@ -24,12 +31,14 @@ Then write ordinary HTML:
 
 ```html
 <main class="container">
-  <article>
-    <h1>Minimal interfaces</h1>
-    <p>Semantic HTML should get you most of the way there.</p>
-    <button>Continue</button>
-    <button class="secondary">Cancel</button>
-  </article>
+  <p class="label">System / Status</p>
+  <h1>Collector</h1>
+  <p>Semantic HTML should get you most of the way there.</p>
+
+  <p>
+    <span data-accent="green">●</span>
+    <span class="numeric">ACTIVE / 12.4 events/s</span>
+  </p>
 </main>
 ```
 
@@ -42,24 +51,43 @@ Open `index.html` for a living specimen of the framework.
 Colors, typography, spacing, radii, and content width are exposed as custom
 properties on `:root`.
 
+Mallow also exposes a small chalk palette:
+
+- `--chalk-green`
+- `--chalk-blue`
+- `--chalk-pink`
+- `--chalk-orange`
+- `--chalk-lime`
+
 ### Semantic HTML
 
-Mallow styles the common document and form elements directly, including:
+Mallow styles common document and form elements directly, including:
 
 `body`, headings, paragraphs, links, lists, code, blockquotes, tables, inputs,
 selects, textareas, and buttons.
 
 ### Layout
 
-- `.container` — centered reading-width container
+- `.container` — centered content container
 - `.stack` — vertical flex layout with consistent gap
 - `.cluster` — wrapping horizontal flex layout
 - `.sidebar-layout` — responsive sidebar/content grid
 
+### Annotation
+
+- `.label` — compact uppercase technical label
+- `.meta` — muted technical metadata
+- `.numeric` — monospace tabular numeric content
+- `[data-accent="green"]`
+- `[data-accent="blue"]`
+- `[data-accent="pink"]`
+- `[data-accent="orange"]`
+- `[data-accent="lime"]`
+
 ### Components
 
-- `.surface` — raised bordered surface
-- `.card` — padded raised surface
+- `.surface` — bounded flat surface
+- `.card` — compact padded surface
 - `button.secondary` — secondary button treatment
 - `.muted` — muted text
 
