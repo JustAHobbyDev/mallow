@@ -16,7 +16,7 @@ selective hard-edged depth, and a restrained terminal-inspired palette.
 - Information establishes hierarchy before containers do.
 - Dark-first, flat fields, small radii, and visible structure.
 - Depth is explicit: surfaces stay flat; cards, code panels, and buttons use crisp offset shadows.
-- IBM Plex Sans for prose and IBM Plex Mono for labels, identifiers, measurements, and state.
+- Metrophobic for prose; IBM Plex Mono for labels, identifiers, measurements, and state.
 - Color communicates function or state; it is not generic emphasis.
 - Tabular, short, clear, and concise beats decorative chrome.
 - The stylesheet is the configuration.
@@ -29,10 +29,10 @@ selective hard-edged depth, and a restrained terminal-inspired palette.
 <link rel="stylesheet" href="mallow.css">
 ```
 
-Mallow prefers IBM Plex Sans and IBM Plex Mono but does not bundle or fetch them.
+Mallow prefers Metrophobic and IBM Plex Mono but does not bundle or fetch them.
 Load the fonts yourself if you want the intended type treatment; otherwise the
 framework falls back to common sans-serif and monospace families. The specimen
-page loads IBM Plex from Google Fonts for demonstration.
+page loads both fonts from Google Fonts for demonstration.
 
 Then write ordinary HTML:
 
@@ -74,11 +74,13 @@ exposed as custom properties on `:root`.
 
 The default palette is pushed toward dark terminal instrumentation rather than a
 conventional product-UI palette: pure black, cool gray structure, muted cyan for
-navigation, machine green for healthy state, amber for warnings, hard red for
-faults, magenta for categories, and violet for experimental state.
+navigation, bright green for active/healthy state, orange for stable state,
+amber for warnings, hard red for faults, magenta for categories, and violet for
+experimental state.
 
 - `--color-link` — links, navigation, and interactive focus
 - `--color-success` — active, healthy, or OK state
+- `--color-stable` — stable or settled state
 - `--color-warning` — warning or degraded state
 - `--color-danger` — fault or error state
 - `--color-category` — category and grouping labels
@@ -115,6 +117,7 @@ offset shadow.
 - `[data-state="active"]` — green
 - `[data-state="healthy"]` — green
 - `[data-state="ok"]` — green
+- `[data-state="stable"]` — orange
 - `[data-state="warning"]` — amber
 - `[data-state="degraded"]` — amber
 - `[data-state="danger"]` — red
