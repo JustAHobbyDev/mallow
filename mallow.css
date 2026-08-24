@@ -16,14 +16,13 @@
   --color-border: rgb(255 255 255 / 12%);
   --color-border-strong: rgb(255 255 255 / 22%);
 
-  /* chalk */
-  --color-accent: #20e3a2;
-  --color-accent-hover: #49ebba;
-  --chalk-green: #20e3a2;
-  --chalk-blue: #4aa8ff;
-  --chalk-pink: #ef81bd;
-  --chalk-orange: #ff934f;
-  --chalk-lime: #b6ff00;
+  /* semantic color */
+  --color-link: #4aa8ff;
+  --color-link-hover: #78c0ff;
+  --color-success: #20e3a2;
+  --color-warning: #ff934f;
+  --color-category: #ef81bd;
+  --color-experimental: #b6ff00;
 
   /* typography */
   --font-sans:
@@ -133,12 +132,12 @@ small,
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-link);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-accent-hover);
+  color: var(--color-link-hover);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -197,7 +196,7 @@ pre code {
 blockquote {
   margin: 1.25rem 0;
   padding: 0.35rem 0 0.35rem 1rem;
-  border-left: 2px solid var(--color-accent);
+  border-left: 2px solid var(--color-border-strong);
   color: var(--color-text-secondary);
 }
 
@@ -288,7 +287,7 @@ textarea {
   outline: none;
   background: var(--color-bg-subtle);
   color: var(--color-text);
-  accent-color: var(--color-accent);
+  accent-color: var(--color-link);
 }
 
 textarea {
@@ -304,43 +303,43 @@ textarea::placeholder {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 1px var(--color-accent);
+  border-color: var(--color-link);
+  box-shadow: 0 0 0 1px var(--color-link);
 }
 
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-link);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: rgb(32 227 162 / 28%);
+  background: rgb(74 168 255 / 24%);
   color: white;
 }
 
-[data-accent] {
-  color: var(--color-accent);
+[data-state="active"],
+[data-state="healthy"],
+[data-state="ok"] {
+  color: var(--color-success);
 }
 
-[data-accent="green"] {
-  color: var(--chalk-green);
+[data-state="warning"],
+[data-state="degraded"] {
+  color: var(--color-warning);
 }
 
-[data-accent="blue"] {
-  color: var(--chalk-blue);
+[data-state="experimental"] {
+  color: var(--color-experimental);
 }
 
-[data-accent="pink"] {
-  color: var(--chalk-pink);
+[data-state="idle"] {
+  color: var(--color-text-muted);
 }
 
-[data-accent="orange"] {
-  color: var(--chalk-orange);
-}
-
-[data-accent="lime"] {
-  color: var(--chalk-lime);
+[data-category],
+.category {
+  color: var(--color-category);
 }
 
 .numeric {
