@@ -8,11 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
-      k
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Metrophobic&display=swap"
       rel="stylesheet"
     >
-    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="mallow.css">
   </head>
   <body>
@@ -63,7 +61,7 @@
             <tr>
               <td>systems</td>
               <td data-category>infrastructure</td>
-              <td class="numeric" data-state="healthy">● STABLE</td>
+              <td class="numeric" data-state="stable">● STABLE</td>
             </tr>
             <tr>
               <td>deploy</td>
@@ -77,7 +75,8 @@
         <h2>Semantic color</h2>
         <p>
           Color is assigned by function. Links use a muted cyan; machine state uses
-          green, amber, red, magenta, or violet rather than generic accent colors.
+          green, orange, amber, red, magenta, or violet rather than generic accent
+          colors.
         </p>
         <table>
           <thead>
@@ -94,6 +93,10 @@
             <tr>
               <td>Healthy</td>
               <td class="numeric" data-state="healthy">● NOMINAL</td>
+            </tr>
+            <tr>
+              <td>Stable</td>
+              <td class="numeric" data-state="stable">● STABLE</td>
             </tr>
             <tr>
               <td>Warning</td>
