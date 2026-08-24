@@ -16,23 +16,22 @@
   <body>
     <main class="container">
       <header>
-        <p class="meta">Mallow / Specimen 01</p>
+        <p class="meta">Mallow / Specimen 02</p>
         <h1>Dark interfaces with physical edges.</h1>
         <p>
-          Mallow gives semantic HTML a dark, technical baseline: black field,
-          crisp type, hairline structure, compact controls, crisp offset depth,
-          and color reserved for recognizable functions and state.
+          A black technical field, crisp type, hairline structure, compact controls,
+          hard offset depth, and a restrained instrument palette.
         </p>
         <div class="cluster">
           <button>Run check</button>
           <button class="secondary">Open notes</button>
-          <a href="#specimen">Inspect specimen</a>
+          <a href="#report">Inspect report</a>
         </div>
       </header>
 
       <hr>
 
-      <article id="specimen">
+      <article>
         <p class="label">01 / Register</p>
         <h2>Projects</h2>
         <table>
@@ -72,57 +71,12 @@
           </tbody>
         </table>
 
-        <p class="label">02 / Type</p>
-        <h2>Semantic HTML</h2>
-        <p>
-          The page should feel considered before component classes appear.
-          Ordinary prose stays readable while labels, measurements, identifiers,
-          and machine state move into a compact monospace register.
-        </p>
-        <p>
-          Here is an <a href="#">ordinary link</a>, some <code>inline code</code>,
-          <span class="muted">muted context</span>, and a
-          <span data-category>category label</span>.
-        </p>
-
-        <blockquote>
-          <p>
-            Information establishes the hierarchy. Containers should only appear
-            when they explain structure.
-          </p>
-        </blockquote>
-
-        <p class="label">03 / Measurement</p>
-        <h2>Instrument data</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Channel</th>
-              <th>Value</th>
-              <th>State</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>capture.rate</td>
-              <td class="numeric">12.40 /s</td>
-              <td class="numeric" data-state="healthy">OK</td>
-            </tr>
-            <tr>
-              <td>queue.depth</td>
-              <td class="numeric">0042</td>
-              <td class="numeric">NOMINAL</td>
-            </tr>
-            <tr>
-              <td>latency.p95</td>
-              <td class="numeric">183 ms</td>
-              <td class="numeric" data-state="warning">WARNING</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p class="label">04 / Color</p>
+        <p class="label">02 / Palette</p>
         <h2>Semantic color</h2>
+        <p>
+          Color is assigned by function. Links use a muted cyan; machine state uses
+          green, amber, red, magenta, or violet rather than generic accent colors.
+        </p>
         <table>
           <thead>
             <tr>
@@ -136,23 +90,68 @@
               <td><a href="#">Documentation</a></td>
             </tr>
             <tr>
-              <td>Healthy state</td>
-              <td class="numeric" data-state="healthy">● HEALTHY</td>
+              <td>Healthy</td>
+              <td class="numeric" data-state="healthy">● NOMINAL</td>
             </tr>
             <tr>
-              <td>Warning state</td>
+              <td>Warning</td>
               <td class="numeric" data-state="warning">● DEGRADED</td>
+            </tr>
+            <tr>
+              <td>Error</td>
+              <td class="numeric" data-state="danger">● FAULT</td>
             </tr>
             <tr>
               <td>Category</td>
               <td data-category>research</td>
             </tr>
             <tr>
-              <td>Experimental state</td>
-              <td class="numeric" data-state="experimental">● EXPERIMENTAL</td>
+              <td>Experimental</td>
+              <td class="numeric" data-state="experimental">● TEST</td>
             </tr>
           </tbody>
         </table>
+
+        <section id="report">
+          <p class="label">03 / Machine Report</p>
+          <h2>System readout</h2>
+          <div class="sidebar-layout">
+            <div>
+              <dl class="readout">
+                <dt>Host</dt>
+                <dd>anvil</dd>
+                <dt>Mode</dt>
+                <dd data-state="healthy">NOMINAL</dd>
+                <dt>Capture rate</dt>
+                <dd>12.40 /s</dd>
+                <dt>Queue depth</dt>
+                <dd>0042</dd>
+                <dt>Latency p95</dt>
+                <dd data-state="warning">183 ms</dd>
+                <dt>Build</dt>
+                <dd>0002</dd>
+              </dl>
+            </div>
+            <aside class="card">
+              <p class="label">Memory</p>
+              <p class="numeric">48%</p>
+              <progress value="48" max="100">48%</progress>
+              <p class="meta">15.4 GiB / 32.0 GiB</p>
+            </aside>
+          </div>
+        </section>
+
+        <p class="label">04 / Type</p>
+        <h2>Semantic HTML</h2>
+        <p>
+          Ordinary prose stays readable while labels, identifiers, measurements,
+          and machine state move into a compact monospace register. Here is an
+          <a href="#">ordinary link</a>, some <code>inline code</code>, and
+          <span class="muted">muted context</span>.
+        </p>
+        <blockquote>
+          <p>Precision is enough to create a visual identity.</p>
+        </blockquote>
 
         <p class="label">05 / Code</p>
         <h2>Raised code panel</h2>
@@ -204,18 +203,17 @@ render status =
           <aside class="card">
             <p class="label">Raised context</p>
             <p class="muted">
-              A card has physical prominence: hard border, minimal radius, and a
-              crisp offset shadow.
+              Cards have physical prominence: hard border, minimal radius, crisp
+              offset shadow.
             </p>
           </aside>
-          <div>
-            <p class="label">Working field</p>
+          <div class="surface" style="padding: 1rem">
+            <p class="label">Flat surface</p>
             <p>
-              Most content remains directly on the black field. Raised elements
-              are reserved for controls, code panels, and bounded modules whose
-              separation carries meaning.
+              A surface establishes a bounded region without claiming elevation.
+              Most content can remain directly on the field.
             </p>
-            <p class="meta">Build 0001 / Dark / Experimental</p>
+            <p class="meta">Build 0002 / Reticle / Experimental</p>
           </div>
         </div>
       </section>

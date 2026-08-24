@@ -3,13 +3,12 @@
 A small dark CSS micro-framework for precise, content-first interfaces.
 
 Mallow is classless-first: semantic HTML should look good on its own. A small
-set of layout primitives and annotations is available when structure needs more
-than HTML can express cleanly.
+set of layout, state, and report primitives is available when structure needs
+more than HTML can express cleanly.
 
 The visual direction is a digital chalkboard crossed with a technical instrument:
-a near-black field, crisp typography, hairline structure, compact controls,
-selective hard-edged depth, and bright color used sparingly to communicate
-function or state.
+a pure black field, crisp typography, hairline structure, compact controls,
+selective hard-edged depth, and a restrained terminal-inspired palette.
 
 ## Principles
 
@@ -19,9 +18,10 @@ function or state.
 - Depth is explicit: surfaces stay flat; cards, code panels, and buttons use crisp offset shadows.
 - IBM Plex Sans for prose and IBM Plex Mono for labels, identifiers, measurements, and state.
 - Color communicates function or state; it is not generic emphasis.
-- A small, intentional design-token vocabulary.
-- A few composable layout primitives instead of utility-class sprawl.
-- No JavaScript, build step, or required runtime dependencies.
+- Tabular, short, clear, and concise beats decorative chrome.
+- The stylesheet is the configuration.
+- A few composable primitives instead of utility-class sprawl.
+- No JavaScript, build step, theme engine, or required runtime dependencies.
 
 ## Use
 
@@ -49,6 +49,22 @@ Then write ordinary HTML:
 
 Open `index.html` for a living specimen of the framework.
 
+## Configuration
+
+There is no separate Mallow configuration format. Override the custom properties
+in CSS:
+
+```css
+:root {
+  --content-width: 64rem;
+  --color-link: #48a0b2;
+}
+```
+
+The goal is to preserve a direct relationship between source and rendered output.
+If changing Mallow requires a generator, DSL, or build system, the framework has
+probably become too complicated.
+
 ## API
 
 ### Tokens
@@ -56,11 +72,15 @@ Open `index.html` for a living specimen of the framework.
 Colors, typography, spacing, radii, content width, and physical-depth tokens are
 exposed as custom properties on `:root`.
 
-Color tokens are semantic rather than generic accents:
+The default palette is pushed toward dark terminal instrumentation rather than a
+conventional product-UI palette: pure black, cool gray structure, muted cyan for
+navigation, machine green for healthy state, amber for warnings, hard red for
+faults, magenta for categories, and violet for experimental state.
 
 - `--color-link` — links, navigation, and interactive focus
 - `--color-success` — active, healthy, or OK state
 - `--color-warning` — warning or degraded state
+- `--color-danger` — fault or error state
 - `--color-category` — category and grouping labels
 - `--color-experimental` — experimental or unusual state
 
@@ -74,11 +94,11 @@ Depth is deliberately crisp rather than blurred:
 Mallow styles common document and form elements directly, including:
 
 `body`, headings, paragraphs, links, lists, code, blockquotes, tables, inputs,
-selects, textareas, and buttons.
+selects, textareas, buttons, and progress meters.
 
-Links are blue by default. Neutral structural elements remain gray rather than
-borrowing a state color. Code blocks are treated as raised technical panels with
-a hard offset shadow.
+Links use cyan by default. Neutral structural elements remain gray rather than
+borrowing a state color. Code blocks are raised technical panels with a hard
+offset shadow.
 
 ### Layout
 
@@ -95,15 +115,37 @@ a hard offset shadow.
 - `[data-state="active"]` — green
 - `[data-state="healthy"]` — green
 - `[data-state="ok"]` — green
-- `[data-state="warning"]` — orange
-- `[data-state="degraded"]` — orange
-- `[data-state="experimental"]` — lime
+- `[data-state="warning"]` — amber
+- `[data-state="degraded"]` — amber
+- `[data-state="danger"]` — red
+- `[data-state="error"]` — red
+- `[data-state="experimental"]` — violet
 - `[data-state="idle"]` — muted gray
-- `[data-category]` / `.category` — pink category or grouping label
+- `[data-category]` / `.category` — magenta category or grouping label
 
-The public API intentionally does not provide `data-accent="blue"` or similar
-color-by-name helpers. If color has no semantic job, prefer normal text,
-typography, rules, or other non-color structure.
+The public API intentionally does not provide color-by-name helpers. If color has
+no semantic job, prefer normal text, typography, rules, or other non-color
+structure.
+
+### Reports
+
+`dl.readout` is a compact key/value instrument readout using semantic `<dl>`
+markup:
+
+```html
+<dl class="readout">
+  <dt>Host</dt>
+  <dd>anvil</dd>
+  <dt>State</dt>
+  <dd data-state="healthy">NOMINAL</dd>
+  <dt>Latency p95</dt>
+  <dd data-state="warning">183 ms</dd>
+</dl>
+```
+
+Native `<progress>` elements are styled as hard-edged meters and can use
+`data-state="warning"` or `data-state="danger"` when the meter itself represents
+that state.
 
 ### Components
 

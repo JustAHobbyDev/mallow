@@ -2,31 +2,32 @@
   color-scheme: dark;
 
   /* field */
-  --color-bg: #0d0d0d;
-  --color-bg-subtle: #121212;
-  --color-surface: #181818;
-  --color-surface-hover: #202020;
+  --color-bg: #000000;
+  --color-bg-subtle: #181818;
+  --color-surface: #262626;
+  --color-surface-hover: #303030;
 
   /* writing */
-  --color-text: #e8e8e8;
+  --color-text: #f7f7f7;
   --color-text-secondary: #b8b8b8;
-  --color-text-muted: #7f7f7f;
+  --color-text-muted: #737373;
 
   /* drafting lines */
-  --color-border: rgb(255 255 255 / 12%);
-  --color-border-strong: rgb(255 255 255 / 22%);
+  --color-border: #262626;
+  --color-border-strong: #484747;
 
-  /* semantic color */
-  --color-link: #4aa8ff;
-  --color-link-hover: #78c0ff;
-  --color-success: #20e3a2;
-  --color-warning: #ff934f;
-  --color-category: #ef81bd;
-  --color-experimental: #b6ff00;
+  /* semantic color — terminal/instrument palette */
+  --color-link: #48a0b2;
+  --color-link-hover: #66b7c7;
+  --color-success: #459a65;
+  --color-warning: #f6c443;
+  --color-danger: #cd0400;
+  --color-category: #ea3d8d;
+  --color-experimental: #6b40ef;
 
   /* physical depth */
-  --shadow-sm: 3px 3px 0 rgb(255 255 255 / 10%);
-  --shadow-md: 5px 5px 0 rgb(255 255 255 / 12%);
+  --shadow-sm: 3px 3px 0 #262626;
+  --shadow-md: 5px 5px 0 #262626;
 
   /* typography */
   --font-sans:
@@ -44,7 +45,6 @@
   /* shape */
   --radius-sm: 2px;
   --radius-md: 4px;
-  --radius-lg: 6px;
 
   /* layout */
   --content-width: 56rem;
@@ -264,7 +264,7 @@ button {
 button:hover {
   border-color: #fff;
   background: #fff;
-  box-shadow: 2px 2px 0 rgb(255 255 255 / 10%);
+  box-shadow: 2px 2px 0 var(--color-border);
   transform: translate(1px, 1px);
 }
 
@@ -301,7 +301,7 @@ textarea {
   width: 100%;
   padding: 0.48rem 0.6rem;
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   outline: none;
   background: var(--color-bg-subtle);
   color: var(--color-text);
@@ -332,7 +332,7 @@ a:focus-visible {
 }
 
 ::selection {
-  background: rgb(74 168 255 / 24%);
+  background: rgb(72 160 178 / 32%);
   color: white;
 }
 
@@ -345,6 +345,11 @@ a:focus-visible {
 [data-state="warning"],
 [data-state="degraded"] {
   color: var(--color-warning);
+}
+
+[data-state="danger"],
+[data-state="error"] {
+  color: var(--color-danger);
 }
 
 [data-state="experimental"] {
@@ -407,9 +412,91 @@ main.container {
   box-shadow: var(--shadow-md);
 }
 
+/* Technical report/readout primitive. */
+dl.readout {
+  display: grid;
+  grid-template-columns: minmax(9rem, 1fr) auto;
+  margin: 0;
+  border-top: 1px solid var(--color-border-strong);
+  border-bottom: 1px solid var(--color-border-strong);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+dl.readout dt,
+dl.readout dd {
+  margin: 0;
+  padding: 0.38rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+dl.readout dt {
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+dl.readout dd {
+  text-align: right;
+}
+
+dl.readout dt:last-of-type,
+dl.readout dd:last-of-type {
+  border-bottom: 0;
+}
+
+progress {
+  width: 100%;
+  height: 0.55rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0;
+  background: var(--color-bg-subtle);
+  accent-color: var(--color-success);
+}
+
+progress::-webkit-progress-bar {
+  background: var(--color-bg-subtle);
+}
+
+progress::-webkit-progress-value {
+  background: var(--color-success);
+}
+
+progress::-moz-progress-bar {
+  background: var(--color-success);
+}
+
+progress[data-state="warning"] {
+  accent-color: var(--color-warning);
+}
+
+progress[data-state="warning"]::-webkit-progress-value,
+progress[data-state="warning"]::-moz-progress-bar {
+  background: var(--color-warning);
+}
+
+progress[data-state="danger"] {
+  accent-color: var(--color-danger);
+}
+
+progress[data-state="danger"]::-webkit-progress-value,
+progress[data-state="danger"]::-moz-progress-bar {
+  background: var(--color-danger);
+}
+
 @media (max-width: 40rem) {
   .sidebar-layout {
     grid-template-columns: 1fr;
+  }
+
+  dl.readout {
+    grid-template-columns: 1fr;
+  }
+
+  dl.readout dd {
+    padding-top: 0;
+    text-align: left;
   }
 }
 
