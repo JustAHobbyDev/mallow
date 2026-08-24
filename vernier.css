@@ -17,10 +17,10 @@
   --color-border-strong: #484747;
 
   /* semantic color — high-contrast terminal/instrument palette */
-  --color-link: #55b6c8;
-  --color-link-hover: #82d3df;
+  --color-link: #00d7ff;
+  --color-link-hover: #22f5ff;
   --color-success: #1bde64;
-  --color-stable: #f08f3e;
+  --color-stable: #ff8f31;
   --color-warning: #ffd24a;
   --color-danger: #ff5f56;
   --color-experimental: #a576fa;
