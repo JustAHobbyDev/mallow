@@ -27,16 +27,15 @@
 
   /* typography */
   --font-sans:
-    ui-sans-serif,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
+    "IBM Plex Sans",
+    "Helvetica Neue",
+    Arial,
     sans-serif;
 
   --font-mono:
+    "IBM Plex Mono",
     "SFMono-Regular",
     Consolas,
-    "Liberation Mono",
     monospace;
 
   /* shape */
@@ -87,7 +86,7 @@ h4,
 h5,
 h6 {
   color: var(--color-text);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.015em;
   line-height: 1.2;
 }
